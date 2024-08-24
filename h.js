@@ -1,6 +1,4 @@
 
-
-
 let songs = [
     { songName: "Most Played: Hindi", category: "All", coverPath: "covers/1.jpg" },
     { songName: "Most Played: International", category: "All", coverPath: "covers/6.jpg" },
@@ -29,53 +27,64 @@ let songs = [
 
 
 
-//////////////////////////////////////////////////////////////
+function displayItems(filteredItems) {
+    const container = document.getElementById("listContainer");
+    container.innerHTML = ""; // Clear previous items
 
-
-function appendSongsToList(category, containerId) {
-    const container = document.getElementById(containerId);
-    
-    songs.filter(song => song.category.toLowerCase() === category.toLowerCase())
-        .forEach(item => {
-            const div = document.createElement("div");
-            div.classList.add('songtype');
-            div.innerHTML = `
-                <a href="index.html">
-                    <img src="${item.coverPath}" alt="cover">
-                    <span class="songName">${item.songName}</span>
-                </a>
-            `;
-            container.appendChild(div);
-            
-        });
+    filteredItems.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add('songtype');
+        div.innerHTML = `
+            <a href="index.html">
+                <img src="${item.coverPath}" alt="cover">
+                <span class="songName">${item.songName}</span>
+            </a>
+        `;
+        container.appendChild(div);
+    });
 }
 
-// Append songs to their respective containers
-appendSongsToList("All", "trendingSongs");
-appendSongsToList("Playlist", "playlists");
-appendSongsToList("Artists", "artists");
-appendSongsToList("Albums", "albums");
+displayItems(songs);
 
-
-/////////////////////////////////////////////////////
 
 
 let searchBox = document.getElementById('searchBox');
 searchBox.addEventListener('input', function () {
     let searchText = searchBox.value.toLowerCase();
-    let filteredSongs = songs.filter(song => song.songName.toLowerCase().includes(searchText));
-    
-    let songtypeElements = Array.from(document.getElementsByClassName('songtype'));
-    songtypeElements.forEach(item => item.style.display = 'none');
-    
-    filteredSongs.forEach(song => {
-        let index = songs.indexOf(song);
-        songtypeElements[index].style.display = '';
-    });
-    document.getElementById("demo").innerText = filteredSongs.length === 0 ? "No Data Found!" : "";
+    let filteredItems = songs.filter(song => song.songName.toLowerCase().includes(searchText));
+
+    displayItems(filteredItems);
+
+    // let songtypeElements = Array.from(document.getElementsByClassName('songtype'));
+    //     songtypeElements.forEach(item => item.style.display = 'none');
+        
+    //     filteredItems.forEach(song => {
+    //         let index = songs.indexOf(song);
+    //         songtypeElements[index].style.display = '';
+    //     });
+
+    document.getElementById("demo").innerText = filteredItems.length === 0 ? "No Data Found!" : "";
 });
 
 
 
-//////////////////////////////////////////////////////////////
+
+function filterSelection(c) {
+    let filteredItems = c === 'All' ? songs : songs.filter(item => item.category === c);
+
+    displayItems(filteredItems);
+    
+    // let songtypeElements = Array.from(document.getElementsByClassName('songtype'));
+    //     songtypeElements.forEach(item => item.style.display = 'none');
+        
+    //     filteredItems.forEach(song => {
+    //         let index = songs.indexOf(song);
+    //         songtypeElements[index].style.display = '';
+    //     });
+}
+
+
+
+
+
 

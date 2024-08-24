@@ -19,7 +19,7 @@ body{
     height: 65px;
     background-color: black;
     color: white;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
 .nav ul{
@@ -29,7 +29,7 @@ body{
     height: 65px;
     background-color: black;
     color: white;
-    margin-right:30px;
+    
     
     
 
@@ -37,7 +37,7 @@ body{
 .nav ul li{
     padding: 0 5px;
     cursor: pointer;
-    margin-right: 50px;
+    margin-right: 20px;
 }
 
 .nav a {
@@ -52,14 +52,14 @@ body{
 }
 .brand img{
     width: 60px;
-    padding: 0 8px;
+    /* padding: 0 8px; */
 }
 .brand{
    display: flex;
    align-items: center;
     font-weight: bolder;
     font-size: 1.3rem;
-    margin-left: 30px;
+    margin-left: 10px;
     cursor: pointer;
     
 
@@ -109,6 +109,7 @@ body{
 
 .songItemcontainer{
     margin-top: 60px;
+width: 260px;
     
 }
 .songItem{
@@ -130,10 +131,13 @@ body{
 
 .timestamp{
     margin: 0 10px;
+    display:flex;
     
 }
 .timestamp i{
+    margin-left: 10px;
     cursor: pointer;
+
 }
 .songInfo{
     position: absolute;
@@ -240,11 +244,13 @@ color: white;
 }
 .list {
     display: flex;
-    gap: 15px; 
+    flex-wrap: wrap;
+    justify-content: center;
     background-color: rgb(29, 26, 26);
     width: 90%;
-    height: 290px;
+    height: auto;
     margin-left: 5%;
+    padding-bottom: 20px;
     border-radius: 5px;
     
     
@@ -288,7 +294,7 @@ color: white;
 
 
 
-/* home2 css */
+/* h css */
 
   .myBtnContainer {
     margin-top: 20px;
@@ -300,14 +306,14 @@ color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #209c1b;
+    background-color: #069201;
     color: white;
     border-radius: 25px;
     margin: 5px;
 }
 
 .btn:hover {
-    background-color: #00830b;
+    background-color: #45e255;
 }
 
 
@@ -316,6 +322,7 @@ color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 20px;
     
     
 }
@@ -330,7 +337,7 @@ footer {
     text-align: center;
     padding: 20px 0;
     
-    bottom: 0;
+ 
 }
 
 .footer-content {
@@ -339,6 +346,7 @@ footer {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    
 }
 
 .footer-content p {
